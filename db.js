@@ -1,8 +1,11 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 
 // define the mongodb connection url
-const mongoURL = "mongodb://localhost:27017/restra" //replace lokeydatabase to self created database
+// const mongoURL = "mongodb://localhost:27017/restra"
+//replace lokeydatabase to self created database
+const mongoURL = process.env.MONGODB_URL
 
 // setup mongodb connection
 mongoose.connect(mongoURL, {
