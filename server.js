@@ -6,10 +6,16 @@ require('dotenv').config()
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json())
+const logRequest = (req, res, next) => {
+    console.log(`${new Date().toLocaleString()} REquest made to ; ${req.originalUrl}`);
+    next();
+}
 
-app.get('/', function(req, res) {
-    res.send("Hello lokey")
-})
+app.get('/', logRequest, function(req, res) {
+        res.send("Hello lokey")
+    })
+    // middlewere
+
 
 
 
